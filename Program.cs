@@ -193,13 +193,13 @@ namespace Statement
             int[] two = fileScore[3].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
             // vip - количество контрактников которым нельзя ставить "2"            
             //int[] vip = fileScore[4].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
-            int vip = int.Parse(fileScore[4]);
+            int vip = int.Parse(fileScore[4].Split(,StringSplitOptions.RemoveEmptyEntries));
             Random r = new Random();
 
             int random = 0;
             string[] fio = File.ReadAllLines("ФИО.txt");
             int[] temp = new int[fio.Length];
-            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, (vip[0])), (vip[0]))));
+            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, vip), vip)));
             int[] practicalScore = new int[fio.Length];
             Array.Copy(overallScore, practicalScore, fio.Length);
 
@@ -233,7 +233,7 @@ namespace Statement
             }
 
             int[] theoryScore = new int[fio.Length];
-            for (int j = 0; j < vip[0]; j++)
+            for (int j = 0; j < vip; j++)
             {
                 switch (practicalScore[j])
                 {
@@ -255,15 +255,13 @@ namespace Statement
                         break;
                 }
             }
-
-
             score5 = generetanigPrakticalAnswers(5, 5);
             score4 = generetanigPrakticalAnswers(4, 5);
             score3 = generetanigPrakticalAnswers(3, 5);
             score2 = generetanigPrakticalAnswers(2, 5);
 
             string[] theoryAnswer = new string[fio.Length];
-            for (int i = 0; i < vip[0]; i++)
+            for (int i = 0; i < vip; i++)
             {
                 switch (theoryScore[i])
                 {
@@ -284,7 +282,7 @@ namespace Statement
                         theoryAnswer[i] = score2[random];
                         break;
                 }
-                for (int j = vip[0]; j < theoryAnswer.Length; j++)
+                for (int j = vip; j < theoryAnswer.Length; j++)
                 {
                     theoryAnswer[j] = "0";
                 }
