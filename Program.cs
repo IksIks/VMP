@@ -83,7 +83,7 @@ namespace Statement
             string[] answers = new string[500];
             double[] values = { 5, 4, 3, 2 };
             int next = 0;
-            if ((score == 5) || (score == 4))           //
+            if ((score == 5) || (score == 4) || (score == 3))           //
                 for (int i = 0; i < values.Length - 1; i++)  //фильтр генерации оценок только из 5 4 3. Length -1 уберает
                                                              //2, чтоб не было оценок вида 5 5 5 2 5 итог 4
                 {                                           //
@@ -199,7 +199,7 @@ namespace Statement
             int random = 0;
             string[] fio = File.ReadAllLines("ФИО.txt");
             int[] temp = new int[fio.Length];
-            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, vip), vip)));
+            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, vip))));
             int[] practicalScore = new int[fio.Length];
             Array.Copy(overallScore, practicalScore, fio.Length);
 
