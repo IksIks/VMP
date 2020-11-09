@@ -199,7 +199,7 @@ namespace Statement
             int random = 0;
             string[] fio = File.ReadAllLines("ФИО.txt");
             int[] temp = new int[fio.Length];
-            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, (vip[0])), (vip[0]))));
+            int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp, vip), vip)));
             int[] practicalScore = new int[fio.Length];
             Array.Copy(overallScore, practicalScore, fio.Length);
 
@@ -233,7 +233,7 @@ namespace Statement
             }
 
             int[] theoryScore = new int[fio.Length];
-            for (int j = 0; j < vip[0]; j++)
+            for (int j = 0; j < vip; j++)
             {
                 switch (practicalScore[j])
                 {
@@ -263,7 +263,7 @@ namespace Statement
             score2 = generetanigPrakticalAnswers(2, 5);
 
             string[] theoryAnswer = new string[fio.Length];
-            for (int i = 0; i < vip[0]; i++)
+            for (int i = 0; i < vip; i++)
             {
                 switch (theoryScore[i])
                 {
@@ -284,7 +284,7 @@ namespace Statement
                         theoryAnswer[i] = score2[random];
                         break;
                 }
-                for (int j = vip[0]; j < theoryAnswer.Length; j++)
+                for (int j = vip; j < theoryAnswer.Length; j++)
                 {
                     theoryAnswer[j] = "0";
                 }
