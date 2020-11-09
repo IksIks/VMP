@@ -193,7 +193,7 @@ namespace Statement
             int[] two = fileScore[3].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
             // vip - количество контрактников которым нельзя ставить "2"            
             //int[] vip = fileScore[4].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
-            int vip = int.Parse(fileScore[4].Split(,StringSplitOptions.RemoveEmptyEntries));
+            int vip = int.Parse(fileScore[4]);
             Random r = new Random();
 
             int random = 0;
